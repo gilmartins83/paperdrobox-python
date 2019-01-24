@@ -1,0 +1,152 @@
+https://paper.dropbox.com/doc/Python--AWPx1Q6ql1vOtKFs19Z3nOz6Ag-TZMDSjZPK4O5efP0KMpuB
+
+Python
+Antes de criarmos um projeto, veremos como trabalhar no console do Python.
+
+A função print
+
+Já vimos no vídeo anterior como imprimir uma mensagem:
+Vamos analisar mais a fundo essa função. No console do Python temos uma função de ajuda, a função `help()`:
+Podemos reparar que um novo console aparece:
+Agora, como queremos saber mais sobre a função `print`, vamos digitá-la:
+
+![Documentação da função print](https://s3.amazonaws.com/caelum-online-public/python3/img/01/help-print.png)
+
+
+Inicialmente, o que nos importa são os três primeiros valores que a função `print` pode receber:
+
+- `value` é o valor que queremos imprimir, as reticências indicam que a função pode receber mais de um valor, basta separá-los por vírgula.
+- `sep` é o separador entre os valores, por padrão o separador é um espaço em branco.
+- `end` é o que acontecerá ao final da função, por padrão há uma quebra de linha, uma nova linha (`\n`).
+
+Podemos apertar a tecla Q para sair da documentação da função e CTRL + C ou CTRL + D para sair do console de ajuda do Python. De volta ao console do próprio Python, podemos testar a função `print` com os valores que vimos:
+Como modificamos o separador, agora os valores são separador por um hífen. Vamos testar o `end`agora, não passando nada para ele:
+Uma nova linha não é criada, ou seja, o que colocarmos dentro do `end` será impresso ao final da função.
+
+Variáveis
+
+Agora queremos flexibilizar a função, queremos poder imprimir outros países, como Itália, Alemanha, Argentina... Para isso teremos que mudar o nome do país e o número de títulos conquistados. Então vamos definir o valor com o nome do país fora da função `print`. Vamos definir uma variável para o nome do país, já que o seu valor pode variar:
+Definimos uma variável e atribuímos a ela um valor. Assim como fizemos com o nome do país, vamos fazer também com a quantidade de títulos:
+Com as variáveis definidas, podemos refazer a função `print`, só que dessa vez passando as variáveis no lugar dos antigos valores:
+Agora a mensagem é impressa no mesmo molde da anterior, só que dessa vez com variáveis! Mas qual é o tipo dessas variáveis? O tipo da variável depende do valor que passarmos para ela. Podemos "perguntar" para a variável qual é o seu tipo, passando-a para a função `type`:
+O valor `str` significa que a variável é do tipo string, já que o seu valor está entra aspas duplas. E `int` significa que a variável é do tipo inteiro, já que passamos um valor inteiro para a variável.
+
+Ainda no console do Python, vimos no vídeo anterior que uma variável sempre terá um tipo associado:
+Mas em nenhum local definimos explicitamente que a variável `pais` receberá valores do tipo string. Talvez você já tenha visto isso em outras linguagens, como C, C++, Java, em que definimos o tipo da variável na hora da sua declaração, algo como:
+Mas isso em Python não funciona. Ou seja, no mundo Python não somos obrigados a definir explicitamente o tipo da variável. Podemos até passar outros tipos de valores para a variável:
+Além de funcionar, o tipo da variável também muda! O tipo da variável mudou dinamicamente, de acordo com o valor que é atribuído a ela, logo, o tipo da variável é definido de acordo com o valor que ela guarda, isso faz parte da tipagem dinâmica do Python.
+
+No capítulo anterior fizemos os primeiros passos com o Python, desde a sua instalação e até vimos um pouco da sua sintaxe no console. Mas para escrever uma aplicação completa, utilizando o console, não parece ser uma boa ideia. Podemos ter um editor de texto que nos auxilie nessa programação, nos permitindo trabalhar com vários arquivos, auxiliando a nossa vida.
+Há várias opções de editores de texto no mercado, entre elas o Atom e o Sublime Text. Apesar de esses editores nos ajudarem a escrever o código, eles não são focados no Python, e sim em dar suporte a várias linguagens. Então, vamos utilizar uma ferramenta (IDE, do inglês Integrated Development Environment) só focada para o Python, assim como existe o Eclipse para o Java.
+
+Instalando o PyCharm
+
+Uma IDE que é voltada exclusivamente para o Python é o PyCharm, e é ela que iremos utilizar aqui no treinamento. A sua instalação é bem simples, basta acessar a sessão de Download do site oficial, baixar e instalar a versão Community da IDE, já que a versão Professional é paga.
+
+Conhecendo o PyCharm e criando o primeiro projeto
+
+Após instalar o PyCharm, vamos abri-lo e criar o nosso primeiro projeto, clicando em Create New Project. Na tela que irá se abrir, nos é perguntado a localização do projeto e a versão do Python. Vamos criar o projeto jogos, dentro da pasta PycharmProjects mesmo, e nos atentar à versão do Python (caso você tenha mais de uma versão instalada) ela deve ser a versão 3.
+O projeto ficará sendo exibido na esquerda, e para criar o primeiro arquivo Python dentro dele, basta clicar com o botão direito do mouse em cima dele e clicar em New -> Python File, vamos colocar o nome do arquivo de adivinhacao.py.
+A fim de testes, vamos imprimir uma mensagem simples:
+Para executar o arquivo, clicamos em Run -> Run... no menu superior, e selecionamos o arquivo que acabamos de criar. O console do PyCharm é aberto e exibe a saída do nosso programa, que é a mensagem Bem vindo ao jogo de Adivinhação!.
+Em uma só tela, conseguimos ver os arquivos do projeto, o seu código fonte e o console, que exibe a saída do programa que for executado. Há vários outros recursos que ainda veremos mais à frente, mas o primeiro passo foi realizado!
+
+Transcrição
+
+A ideia do nosso jogo é termos que acertar um número secreto. Quando o programa estiver rodando, teremos que digitar um número e o programa dirá se acertamos ou erramos o número, com várias tentativas e níveis.
+Vamos começar definindo esse número secreto (mais à frente vamos ver como gerar um número aleatório):
+
+    print("*********************************")
+    print("Bem vindo ao jogo de Adivinhação!")
+    print("*********************************")
+    
+    numero_secreto = 42
+Capturando a entrada do usuário
+
+Agora, para que o usuário possa digitar o número, vamos utilizar a função `input`, ela trava o programa até que o usuário digite algo e tecle `ENTER`. Ela recebe por parâmetro a mensagem que será exibida no console e nos retorna o que o usuário digitou, logo vamos guardar esse resultado em uma variável, que chamaremos de `chute`:
+
+    print("*********************************")
+    print("Bem vindo ao jogo de Adivinhação!")
+    print("*********************************")
+    
+    numero_secreto = 42
+    
+    chute = input("Digite o seu número: ")
+
+Para testar, vamos ao final do programa imprimir o conteúdo da variável `chute`, para mostrar realmente que o seu conteúdo será o que o usuário digitou:
+
+    print("*********************************")
+    print("Bem vindo ao jogo de Adivinhação!")
+    print("*********************************")
+    
+    numero_secreto = 42
+    
+    chute = input("Digite o seu número: ")
+    print("Você digitou: ", chute)
+
+Podemos rodar o programa e ver que realmente é impresso o valor que digitarmos.
+
+Comparando valores
+
+Agora que conseguimos capturar o que o usuário digitou, precisamos comparar esse valor com o número secreto, para poder dizer ao usuário se ele digitou o número correto ou não. Bom, já sabemos o número secreto que o chute do usuário, então vamos comparar os dois, algo como:
+
+    se numero_secreto igual chute
+        print("Você acertou!")
+    senão
+        print("Você errou!")
+
+Só que as palavras se, senão e igual não funcionam no mundo Python, temos que respeitar a sua sintaxe. O se em Python é `if`, o igual é a comparação `==` e o senão é `else`. Então, resumindo a sintaxe do Python é:
+
+    if (condição):
+        executa código caso a condição seja verdadeira
+    else:
+        executa código caso a condição seja falsa
+
+Mas precisamos prestar atenção a alguns detalhes. É uma recomendação que a condição fique dentro de parênteses (apesar de também funcionar sem); para marcar o fim da instrução e início de um bloco (o código que será executado caso a condição seja verdadeira ou falsa), é utilizado dois pontos (`:`), e esse bloco obrigatoriamente deve estar 4 espaços (ou um `TAB`) mais à direita. Então o código ficará assim:
+
+    if (numero_secreto == chute):
+        print("Você acertou!")
+    else:
+        print("Você errou!")
+
+Podemos rodar o programa e verificar que mesmo se digitarmos o número certo, recebemos a mensagem Você errou. Porque?
+
+Convertendo uma string para número inteiro
+
+Isso acontece porque a função `input` nos retorna uma string, pois qualquer coisa pode ser digitada, não é garantido que o usuário irá digitar um número. Como não há essa garantia, o retorno é uma string.
+Já a variável `numero_secreto` é um número! Logo, do tipo inteiro. Então estamos testando a igualdade de um inteiro com uma string, logo essa comparação sempre será falsa, apesar da string representar um número inteiro. Para resolver isso precisamos mudar o tipo da variável, convertendo uma string em número inteiro.
+Para isso, o Python possui a função `int`, que recebe um valor e o converte para inteiro, justamente o que queremos. Logo, vamos utilizá-la no nosso código:
+
+    print("*********************************")
+    print("Bem vindo ao jogo de Adivinhação!")
+    print("*********************************")
+    
+    numero_secreto = 42
+    
+    chute_str = input("Digite o seu número: ")
+    print("Você digitou: ", chute_str)
+    chute = int(chute_str)
+    
+    if (numero_secreto == chute):
+        print("Você acertou!")
+    else:
+        print("Você errou!")
+
+Agora a comparação é feita corretamente! Para sair do bloco do `else`, basta escrevermos algo depois dele, sem a indentação de 4 espaços:
+
+    print("*********************************")
+    print("Bem vindo ao jogo de Adivinhação!")
+    print("*********************************")
+    
+    numero_secreto = 42
+    
+    chute_str = input("Digite o seu número: ")
+    print("Você digitou: ", chute_str)
+    chute = int(chute_str)
+    
+    if (numero_secreto == chute):
+        print("Você acertou!")
+    else:
+        print("Você errou!")
+    
+    print("Fim do jogo")
